@@ -1,0 +1,180 @@
+.card {
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    position: relative;
+    height: 48rem;
+
+    &__side {
+        height: 48rem;
+        transition: all .8s ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        width: 100%;
+        border-radius: 3px;
+        overflow: hidden;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+        
+
+        &--front {
+            background-color: $color-grey-one;
+        }
+
+        &--back {
+            transform: rotateY(180deg);
+
+            &-1 {
+                background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary);
+            }
+
+            &-2 {
+                background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary);
+            }
+
+            &-3 {
+                background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary);
+            }
+        }
+    }
+
+    &:hover &__side--front{
+        transform: rotateY(-180deg);
+    }
+
+    &:hover &__side--back{
+        transform: rotateY(0deg);
+    }
+
+    &__picture {
+        background-size: cover;
+        height: 23rem;
+        background-blend-mode: soft-light;
+
+
+        &--1 {
+            background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary), url(../img/family.jpg);
+        }
+
+        &--2 {
+            background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary), url(../img/portrait.jpg);
+        }
+
+        &--3 {
+            background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary), url(../img/wedding.jpg);
+        }
+    }
+
+    &__heading {
+        font-size: 2.8rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        color: $color-white;
+        position: absolute;
+        top: 16rem;
+        left: 16rem;
+        width: 60%;
+    }
+
+    &__heading--span {
+        padding: 1rem 1.5rem;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+
+
+        &-1 {
+            background-image: linear-gradient(to right bottom, rgba($color-tertiary-light, .9), rgba($color-tertiary, .9));
+        }
+
+        &-2 {
+            background-image: linear-gradient(to right bottom, rgba($color-primary-light, .9), rgba($color-primary-dark, .9));
+        }
+
+        &-3 {
+            background-image: linear-gradient(to right bottom, rgba($color-secondary-light, .9), rgba($color-secondary, .9));
+        }
+    }
+
+    &__details {
+        padding-top: 5rem;
+        color: $color-grey;
+        ul {
+            list-style: none;
+            width: 80%;
+            margin: 0 auto;
+
+            li {
+                text-align: center;
+                font-size: 1.5rem;
+                padding: 1rem;
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid $color-grey-two;
+                }
+            }
+        }
+
+    }
+
+    &__cta {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        text-align: center;
+    }
+
+    @include respond(tab-port) {
+   
+         height: auto;
+
+    &__side {
+        height: auto;
+        transition: all .8s ease;
+        position: relative;
+        border-radius: 3px;
+
+        &--back {
+            transform: rotateY(0);
+
+            &-1 {
+                background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary);
+            }
+
+            &-2 {
+                background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary);
+            }
+
+            &-3 {
+                background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary);
+            }
+        }
+    }
+
+    &:hover &__side--front{
+        transform: rotateY(0);
+    }
+
+    
+
+    &__cta {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: translate(0);
+        width: 100%;
+        padding: 8rem 4rem;
+        
+    }
+
+    &__details {
+        padding-top: 5rem;
+        padding-bottom: 4rem;
+
+    }
+    
+    }
+
+}

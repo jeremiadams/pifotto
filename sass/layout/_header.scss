@@ -1,0 +1,31 @@
+.header {
+    height: 100vh;
+    background-image: linear-gradient(to right bottom, rgba($color-primary-dark, 0.81), rgba($color-primary, 0.81)), url(../img/backimg.jpg);
+    background-size: cover;
+    background-position: top;
+    position: relative;
+  
+    &__logo-box {
+      position: absolute;
+      top: 4rem;
+      left: 4rem;
+
+      @include respond(phone) {
+        left: 2rem;
+      }
+    }
+  
+    &__logo {
+      height: 5.5rem;
+    }
+    
+    &__text-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+  
+  
+  }
